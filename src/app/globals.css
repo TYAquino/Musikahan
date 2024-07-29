@@ -15,9 +15,39 @@ body {
     rgb(var(--background-start-color)),
     rgb(var(--background-end-color))
   );
-  margin: 0; /* Ensure no default margin affecting layout */
-  padding: 0; /* Ensure no default padding affecting layout */
-  height: 100vh; /* Ensure the body takes up full viewport height */
-  width: 100vw; /* Ensure the body takes up full viewport width */
-  overflow: hidden; /* Optional: Prevent scrolling if not needed */
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Full viewport height */
+  width: 100vw;  /* Full viewport width */
+  overflow: hidden; /* Prevent body scroll */
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.ml-64 {
+  margin-left: 250px; /* Adjust based on sidebar width */
+}
+
+/* Optional: For content area to handle overflow */
+.main-content {
+  overflow-y: auto; /* Allow vertical scrolling if needed */
+  height: calc(100vh - 0px); /* Adjust if header or other elements are present */
+}
+
+/* Adjust sidebar styling */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px; /* Adjust width as needed */
+  height: 100vh; /* Full viewport height */
+  background-color: #333;
+  color: #fff;
+  /* Add additional sidebar styles as needed */
 }

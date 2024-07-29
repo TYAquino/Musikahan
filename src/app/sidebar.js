@@ -5,7 +5,7 @@ import SideButtons from './sidebuttons'; // Importing SideButtons from the same 
 
 export default function Sidebar() {
   return (
-    <div className="bg-[#311c74] text-white w-64 h-screen fixed top-0 left-0 flex flex-col p-4">
+    <div className="bg-[#311c74] text-white w-50 h-screen fixed top-0 left-0 flex flex-col p-4">
       <div className="flex flex-row items-center mb-8">
         <div className="w-17 h-19">
           <img
