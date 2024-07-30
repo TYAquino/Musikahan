@@ -4,30 +4,44 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-start-color: 50, 4, 71; /* Custom Purple */
+  --background-end-color: 7, 244, 158;   /* Custom Teal */
+}
+main {
+  margin: 0; /* Remove any unintended margins */
+  padding: 0; /* Remove any unintended padding */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+*, *::before, *::after {
+  box-sizing: border-box; /* Ensures padding and borders are included in the element's total width and height */
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    to bottom,
+    #42047e, /* Custom Deep Purple */
+    #07f49e  /* Custom Teal */
+  );
+  margin: 0; /* Ensure no margin around the body */
+  padding: 0; /* Ensure no padding around the body */
+  height: 100vh; /* Full viewport height */
+  width: 100vw;  /* Full viewport width */
+  overflow: hidden; /* Prevent body scroll */
+  display: flex; /* Ensure content inside body is centered */
+  justify-content: center;
+  align-items: center;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+header {
+  width: 85%;
+  height: 90%;
+  border: 1px solid black;
+  background-color: white;
+  opacity: .7; /* Use a value between 0 (fully transparent) and 1 (fully opaque) */
+  border-radius: 10px;
+  margin: 0;
+  padding: 0;
+  border-color: rgb(161, 147, 152);
+  box-shadow: #23caaf;
+  
 }
