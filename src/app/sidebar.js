@@ -5,7 +5,7 @@ import SideButtons from './sidebuttons'; // Importing SideButtons from the same 
 
 export default function Sidebar() {
   return (
-    <div className="bg-[#100a29] text-white w-50 flex flex-col p-4 shadow-lg rounded-lg"> {/* Adjust width and height */}
+    <div className="bg-[#090615] text-white w-50 flex flex-col p-4 shadow-lg rounded-lg"> {/* Adjust width and height */}
 
       <div className="flex items-center">
         <div className="w-32 h-24"> {/* Container for logo */}

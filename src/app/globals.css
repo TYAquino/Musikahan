@@ -19,8 +19,8 @@ main {
 body {
   background: linear-gradient(
     to bottom,
-    #1d0238, /* Custom Deep Purple */
-    #035b4c  /* Custom Teal */
+    #42047e, /* Custom Deep Purple */
+    #07f49e  /* Custom Teal */
   );
   margin: 0; /* Ensure no margin around the body */
   padding: 0; /* Ensure no padding around the body */
@@ -41,4 +41,7 @@ header {
   border-radius: 10px;
   margin: 0;
   padding: 0;
+  border-color: rgb(161, 147, 152);
+  box-shadow: #23caaf;
+  
 }
