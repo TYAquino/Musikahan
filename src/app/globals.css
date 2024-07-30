@@ -4,54 +4,41 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-color: 66, 4, 126; /* Custom Purple */
+  --background-start-color: 50, 4, 71; /* Custom Purple */
   --background-end-color: 7, 244, 158;   /* Custom Teal */
+}
+main {
+  margin: 0; /* Remove any unintended margins */
+  padding: 0; /* Remove any unintended padding */
+}
+
+*, *::before, *::after {
+  box-sizing: border-box; /* Ensures padding and borders are included in the element's total width and height */
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
   background: linear-gradient(
     to bottom,
-    rgb(var(--background-start-color)),
-    rgb(var(--background-end-color))
+    #1d0238, /* Custom Deep Purple */
+    #035b4c  /* Custom Teal */
   );
-  margin: 5;
-  padding: 0;
-  height: 150vh; /* Full viewport height */
+  margin: 0; /* Ensure no margin around the body */
+  padding: 0; /* Ensure no padding around the body */
+  height: 100vh; /* Full viewport height */
   width: 100vw;  /* Full viewport width */
   overflow: hidden; /* Prevent body scroll */
-  background-image: url('/images/background2.png');
-  background-size: cover; /* Ensure the image covers the entire area */
-  background-position: center; /* Center the background image */
-  background-repeat: no-repeat; /* Prevent background image from repeating */
+  display: flex; /* Ensure content inside body is centered */
+  justify-content: center;
+  align-items: center;
 }
 
-.flex {
-  display: flex;
-}
-
-.flex-1 {
-  flex: 1;
-}
-
-.ml-64 {
-  margin-left: 250px; /* Adjust based on sidebar width */
-}
-
-/* Optional: For content area to handle overflow */
-.main-content {
-  overflow-y: auto; /* Allow vertical scrolling if needed */
-  height: calc(100vh - 0px); /* Adjust if header or other elements are present */
-}
-
-/* Adjust sidebar styling */
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 250px; /* Adjust width as needed */
-  height: 100vh; /* Full viewport height */
-  background-color: #333;
-  color: #fff;
-  /* Add additional sidebar styles as needed */
+header {
+  width: 85%;
+  height: 90%;
+  border: 1px solid black;
+  background-color: white;
+  opacity: .7; /* Use a value between 0 (fully transparent) and 1 (fully opaque) */
+  border-radius: 10px;
+  margin: 0;
+  padding: 0;
 }

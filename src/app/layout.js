@@ -7,13 +7,13 @@ import './globals.css'; // Import your global CSS file
 export default function Layout({ children }) {
   return (
     <html>
-      <body>
-        <div className="flex">
-          <Sidebar />
-          <div className="flex-1 ml-64"> {/* Adjust ml-64 based on sidebar width */}
+      <body className='min-h-screen bg-gray-100'>
+        <header className="bg-black flex">
+          <Sidebar /> {/* Sidebar will be inside the header */}
+          <main className='flex-1 p-4'> {/* Adjust ml-64 based on sidebar width */}
             {children}
-          </div>
-        </div>
+          </main>
+        </header>
       </body>
     </html>
   );
