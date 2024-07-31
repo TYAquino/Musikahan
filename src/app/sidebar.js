@@ -1,7 +1,8 @@
-// src/components/sidebar.js
+// src/app/sidebar.js
 "use client";
 import React from 'react';
 import SideButtons from './sidebuttons'; // Importing SideButtons from the same directory
+import Link from 'next/link';
 
 export default function Sidebar() {
   return (
@@ -24,6 +25,12 @@ export default function Sidebar() {
         <SideButtons title="Trending" to="/trending" imageSrc="/images/trending.png" />
         <SideButtons title="Player" to="/player" imageSrc="/images/player.png" />
         <SideButtons title="Library" to="/library" imageSrc="/images/library.png" />
+        <Link href="/signup">
+          <button className="text-white ">Sign Up</button>
+        </Link>
+        <Link href="/logIn">
+          <button className="text-white">Log In</button>
+        </Link>
       </div>
     </div>
   );
