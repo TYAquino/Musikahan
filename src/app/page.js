@@ -10,8 +10,10 @@ export default function HomePage() {
       <Sidebar />
       <main className="flex-1 p-4">
         <h1></h1>
+        <li><Link href="/login">Login</Link></li>
         <nav>
           <ul>
+            
             <li><Link href="/library">Library</Link></li>
             <li><Link href="/feed">Feed</Link></li>
             <li><Link href="/trending">Trending</Link></li>
