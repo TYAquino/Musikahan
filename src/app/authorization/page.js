@@ -41,6 +41,7 @@ const base64encode = (input) => {
 const authenticateWithSpotify = async () => {
   const codeVerifier  = generateRandomString(64);
   window.localStorage.setItem('code_verifier', codeVerifier);
+  console.log('codeVerifier 1', codeVerifier);
 
   const hashed = await sha256(codeVerifier);
   const codeChallenge = base64encode(hashed);
@@ -62,7 +63,6 @@ const authenticateWithSpotify = async () => {
 
   authUrl.search = new URLSearchParams(params).toString();
   window.location.href = authUrl.toString();
-  return "OKNA";
 }
 
 export default function Loginauth() {
