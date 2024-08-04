@@ -58,20 +58,19 @@ export default function Loginauth() {
   }, [router]);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
+    <div className="fixed inset-4 flex flex-col items-center justify-center p-4 bg-black z-50">
       <img
-        src="/images/spotify.jpg"
-        width={100}
-        height={100}
+        src="/images/listenonspotify.webp"
+        width={500}
+        height={500}
         className="mb-4"
         alt="Spotify Logo"
       />
-      <div className='text-lg font-semibold mb-4'>Login</div>
       <button
         onClick={redirectToSpotifyAuthorize}
-        className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition"
+        className="p-20 py-3 bg-white text-black font-bold rounded hover:bg-green-700 transition m-3 border-2 border-gray-300"
       >
-        Login with Spotify
+        Login
       </button>
     </div>
   );
