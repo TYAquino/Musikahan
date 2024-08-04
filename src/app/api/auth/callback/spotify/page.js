@@ -30,27 +30,16 @@ const getToken = async (code) => {
 
 export default function Spotify() {
   useEffect(() => {
-    console.log('clientId=' + clientId, 'redirectUrl=' + redirectUrl);
-    // This code runs after the component mounts
-    // const urlParams = new URLSearchParams(window.location.search);
-    // const code = urlParams.get('code');
-    // console.log('Component mounted, code=>', code);
-    // const token = await getToken(code);
-    // console.log('Token=>', token);
-
-    // getToken(code).then((token) => {
-    //   console.log('Token=>', token);
-    // });
+    // console.log('clientId=' + clientId, 'redirectUrl=' + redirectUrl);
 
     // Define an async function inside the useEffect hook
     const fetchData = async () => {
       const urlParams = new URLSearchParams(window.location.search);
       const code = urlParams.get('code');
-      console.log('Component mounted, code=>', code);
       
       try {
         const token = await getToken(code);
-        console.log('Token=>', token);
+        // console.log('Token=>', token);
 
         if (undefined != token.access_token) {
           console.log('access_token', token.access_token);
