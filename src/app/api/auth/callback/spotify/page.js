@@ -2,52 +2,71 @@
 
 import {useEffect } from 'react';
 
+const clientId = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID;
+const redirectUrl = process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URL;
+const tokenEndpoint = "https://accounts.spotify.com/api/token";
+
 const getToken = async (code) => {
-  // stored in the previous step
-  let codeVerifier = localStorage.getItem('code_verifier');
-  console.log('codeVerifier', codeVerifier);
+  const code_verifier = localStorage.getItem('code_verifier');
+  console.log('code_verifier 02', code_verifier);
 
-  const clientId = 'e1e243e9fd4647acbab74b4c154576ee';
-  const redirectUri = 'http://localhost:3000/api/auth/callback/spotify';
-  const url = "https://accounts.spotify.com/api/token";
-
-  const payload = {
+  const response = await fetch(tokenEndpoint, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
     },
     body: new URLSearchParams({
-      client_id: clientId, // <<
+      client_id: clientId,
       grant_type: 'authorization_code',
-      code,
-      redirect_uri: redirectUri, // <<
-      code_verifier: codeVerifier,
+      code: code,
+      redirect_uri: redirectUrl,
+      code_verifier: code_verifier,
     }),
-  }
+  });
 
-  const body = await fetch(url, payload);
-  const response = await body.json();
-
-  localStorage.setItem('access_token', response.access_token);
+  return await response.json();
 }
 
 
 export default function Spotify() {
   useEffect(() => {
+    console.log('clientId=' + clientId, 'redirectUrl=' + redirectUrl);
     // This code runs after the component mounts
-    const urlParams = new URLSearchParams(window.location.search);
-    const code = urlParams.get('code');
-    console.log('Component mounted, code=>', code);
-    // const token = getToken(code);
+    // const urlParams = new URLSearchParams(window.location.search);
+    // const code = urlParams.get('code');
+    // console.log('Component mounted, code=>', code);
+    // const token = await getToken(code);
     // console.log('Token=>', token);
 
-    getToken(code).then((token) => {
-      console.log('Token=>', token);
-    });
+    // getToken(code).then((token) => {
+    //   console.log('Token=>', token);
+    // });
+
+    // Define an async function inside the useEffect hook
+    const fetchData = async () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const code = urlParams.get('code');
+      console.log('Component mounted, code=>', code);
+      
+      try {
+        const token = await getToken(code);
+        console.log('Token=>', token);
+
+        if (undefined != token.access_token) {
+          console.log('access_token', token.access_token);
+          localStorage.setItem('access_token', token.access_token);
+        }
+      } catch (error) {
+        console.error('Error fetching token:', error);
+      }
+    };
+
+    // Call the async function
+    fetchData();
 
     // Optionally, you can return a cleanup function
     return () => {
-      console.log('Component unmounted');
+      // console.log('Component unmounted');
     };
   }, []);
 
