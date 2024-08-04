@@ -19,11 +19,11 @@ export default function Sidebar() {
         </div>
       </div>
       <div className="flex flex-col space-y-6">
+        <SideButtons title="Library" to="/library" imageSrc="/images/library.png" />
         <SideButtons title="Feed" to="/feed" imageSrc="/images/feed.png" />
         <SideButtons title="Favorites" to="/favorites" imageSrc="/images/favorite.png" />
         <SideButtons title="Trending" to="/trending" imageSrc="/images/trending.png" />
         <SideButtons title="Player" to="/player" imageSrc="/images/player.png" />
-        <SideButtons title="Library" to="/library" imageSrc="/images/library.png" />
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 const clientId = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID;
 const redirectUrl = process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URL;
 const authorizationEndpoint = "https://accounts.spotify.com/authorize";
-const scope = 'user-read-private user-read-email';
+const scope = 'user-read-private user-read-email user-top-read user-follow-read';
 
 async function redirectToSpotifyAuthorize() {
   const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';

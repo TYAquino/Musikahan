@@ -6,7 +6,7 @@ import apiClient, { setClientToken } from '../axios/page.js'; // Adjust the impo
 const Library = () => {
   const [playlists, setPlaylists] = useState(null);
   const [error, setError] = useState(null);
-  const token = typeof window !== 'undefined' ? window.localStorage.getItem('token') : null;
+  const token = typeof window !== 'undefined' ? window.localStorage.getItem('access_token') : null;
 
   useEffect(() => {
     if (token) {
