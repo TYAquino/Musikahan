@@ -1,5 +1,5 @@
 "use client";
-// src/components/sidebuttons.js
+// src/app/sidebuttons.js
 import React from 'react';
 import Link from 'next/link';
 

@@ -1,9 +1,12 @@
 "use client";
 
+
 import { useEffect, useState } from 'react';
+
 import Link from 'next/link';
 import Sidebar from './sidebar';
 import Loginauth from './authorization/page'; // Adjust path if needed
+
 
 export default function HomePage() {
   const [token, setToken] = useState("");
@@ -28,6 +31,7 @@ export default function HomePage() {
   return !token ? (
     <Loginauth /> // Render the Login component if there's no token
   ) : (
+
     <div className="flex">
       <Sidebar />
       <main className="flex-1 p-4">
@@ -42,5 +46,6 @@ export default function HomePage() {
         </nav>
       </main>
     </div>
+
   );
 }
