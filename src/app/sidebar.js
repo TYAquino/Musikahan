@@ -1,7 +1,8 @@
-// src/components/sidebar.js
+// src/app/sidebar.js
 "use client";
 import React from 'react';
 import SideButtons from './sidebuttons'; // Importing SideButtons from the same directory
+import Link from 'next/link';
 
 export default function Sidebar() {
   return (
@@ -19,11 +20,10 @@ export default function Sidebar() {
         </div>
       </div>
       <div className="flex flex-col space-y-6">
-        <SideButtons title="Library" to="/library" imageSrc="/images/library.png" />
-        <SideButtons title="Feed" to="/feed" imageSrc="/images/feed.png" />
+        <SideButtons title="My Playlist" to="/MyPlaylist" imageSrc="/images/library.png" />
         <SideButtons title="Favorites" to="/favorites" imageSrc="/images/favorite.png" />
-        <SideButtons title="Trending" to="/trending" imageSrc="/images/trending.png" />
-        <SideButtons title="Player" to="/player" imageSrc="/images/player.png" />
+        <SideButtons title="Tracks" to="/Tracks" imageSrc="/images/trending.png" />
+        
       </div>
     </div>
   );
