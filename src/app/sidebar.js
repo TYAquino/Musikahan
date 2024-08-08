@@ -20,6 +20,7 @@ export default function Sidebar() {
         </div>
       </div>
       <div className="flex flex-col space-y-6">
+<<<<<<< Updated upstream
         <SideButtons title="Feed" to="/feed" imageSrc="/images/feed.png" />
         <SideButtons title="Favorites" to="/favorites" imageSrc="/images/favorite.png" />
         <SideButtons title="Trending" to="/trending" imageSrc="/images/trending.png" />
@@ -31,6 +32,23 @@ export default function Sidebar() {
         <Link href="/logIn">
           <button className="text-white">Log In</button>
         </Link>
+=======
+        <SideButtons
+          title="My Playlist"
+          to="/MyPlaylist"
+          imageSrc="/images/library.png"
+        />
+        <SideButtons
+          title="Favorites"
+          to="/favorites"
+          imageSrc="/images/favorite.png"
+        />
+        <SideButtons
+          title="Player"
+          to="/player"
+          imageSrc="/images/player.png"
+        />
+>>>>>>> Stashed changes
       </div>
     </div>
   );

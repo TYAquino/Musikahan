@@ -65,17 +65,20 @@ export default function Loginauth() {
   }, [router]);
 
   return (
-    <div className="fixed inset-4 flex flex-col items-center justify-center p-4 bg-black z-50">
+    <div className="fixed inset-4 flex flex-col items-center rounded-3xl justify-center p-4 bg-black z-50">
+      <h1 className="text-white text-4xl font-bold mb-4">
+        Listen to your songs with
+      </h1>
       <img
         src="/images/whitelogo.png"
         width={500}
-        height={500}
+        height={300}
         className="mb-4"
         alt="Musikahan Logo"
       />
       <button
         onClick={redirectToSpotifyAuthorize}
-        className="p-20 py-3 bg-white text-black font-bold rounded hover:bg-green-700 transition m-3 border-2 border-gray-300"
+        className="bg-teal-600 text-white px-4 py-2 rounded-md hover:scale-110 transition duration-300 ease-in-out"
       >
         Login with Spotify
       </button>
