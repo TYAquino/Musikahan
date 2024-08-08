@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import apiClient, { setClientToken } from '../axios/page.js'; // Adjust the import path as necessary
 
-const Library = () => {
+const MyPlaylist = () => {
   const [playlists, setPlaylists] = useState(null);
   const [error, setError] = useState(null);
   const token = typeof window !== 'undefined' ? window.localStorage.getItem('access_token') : null;
@@ -30,7 +30,7 @@ const Library = () => {
       {playlists ? (
         <div className="flex flex-wrap gap-4"> {/* Container for inline items */}
           {playlists.map((playlist) => (
-            <div key={playlist.id} className="flex flex-col items-center p-2 bg-white rounded shadow w-40">
+            <div key={playlist.id} className="flex flex-col items-center p-2 text-white rounded shadow w-40">
               {/* Check if playlist.images exists and has at least one image */}
               {playlist.images && playlist.images.length > 0 && (
                 <img
@@ -50,4 +50,4 @@ const Library = () => {
   );
 };
 
-export default Library;
+export default MyPlaylist;
