@@ -1,12 +1,10 @@
 "use client";
 
+import { useEffect, useState } from "react";
 
-import { useEffect, useState } from 'react';
-
-import Link from 'next/link';
-import Sidebar from './sidebar';
-import Loginauth from './authorization/page'; // Adjust path if needed
-
+import Link from "next/link";
+import Sidebar from "./sidebar";
+import Loginauth from "./authorization/page"; // Adjust path if needed
 
 export default function HomePage() {
   const [token, setToken] = useState("");
@@ -17,10 +15,10 @@ export default function HomePage() {
 
     // If there's a token in the URL hash, extract and store it
     if (!storedToken && hash) {
-      const _token = hash.split('&')[0].split('=')[1];
+      const _token = hash.split("&")[0].split("=")[1];
       window.localStorage.setItem("token", _token);
       setToken(_token);
-      
+
       // Clear the hash from the URL
       window.location.hash = "";
     } else {
@@ -31,21 +29,23 @@ export default function HomePage() {
   return !token ? (
     <Loginauth /> // Render the Login component if there's no token
   ) : (
-
     <div className="flex">
       <Sidebar />
       <main className="flex-1 p-4">
         <nav>
           <ul>
-            <li><Link href="/library">Library</Link></li>
-            <li><Link href="/feed">Feed</Link></li>
-            <li><Link href="/trending">Trending</Link></li>
-            <li><Link href="/player">Player</Link></li>
-            <li><Link href="/favorites">Favorites</Link></li>
+            <li>
+              <Link href="/library">Library</Link>
+            </li>
+            <li>
+              <Link href="/player">Player</Link>
+            </li>
+            <li>
+              <Link href="/favorites">Favorites</Link>
+            </li>
           </ul>
         </nav>
       </main>
     </div>
-
   );
 }
