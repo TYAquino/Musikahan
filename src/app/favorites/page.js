@@ -2,9 +2,11 @@
 
 import React, { useEffect, useState } from "react";
 import apiClient, { setClientToken } from "../axios/page.js"; // Adjust the import path as necessary
+import AudioPlayer from "../components/AudioPlayer"; // Import the AudioPlayer component
 
 const Favorites = () => {
   const [artists, setArtists] = useState(null);
+  const [selectedTrack, setSelectedTrack] = useState(null); // State to manage the currently selected track
   const [error, setError] = useState(null);
   const token =
     typeof window !== "undefined"
@@ -28,6 +30,12 @@ const Favorites = () => {
     }
   }, [token]);
 
+  // Function to handle click and set the selected track
+  const handleTrackClick = (trackUrl) => {
+    console.log('Track URL:', trackUrl); // Verify URL
+    setSelectedTrack(trackUrl);
+  };
+
   return (
     <div className="flex flex-col h-full bg-black p-4 overflow-y-auto">
       {error && <div className="text-red-500">{error}</div>}
@@ -46,12 +54,19 @@ const Favorites = () => {
                 />
               )}
               <div className="text-center">{artist.name}</div>
+              <button
+                onClick={() => handleTrackClick('ACTUAL_TRACK_URL')} // Replace with actual track URL
+                className="mt-2 bg-blue-500 text-white px-4 py-2 rounded"
+              >
+                Play Track
+              </button>
             </div>
           ))}
         </div>
       ) : (
         !error && <div>Loading artists...</div>
       )}
+      {selectedTrack && <AudioPlayer src={selectedTrack} />}
     </div>
   );
 };
