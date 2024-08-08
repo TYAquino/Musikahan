@@ -17,6 +17,7 @@ const MyPlaylist = () => {
       apiClient
         .get("me/playlists")
         .then((response) => {
+          console.log("Playlists fetched:", response.data.items);//log the fetched playlists for debugging
           setPlaylists(response.data.items);
         })
         .catch((error) => {
