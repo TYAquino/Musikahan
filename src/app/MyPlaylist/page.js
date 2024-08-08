@@ -3,8 +3,8 @@
 import React, { useEffect, useState } from "react";
 import apiClient, { setClientToken } from "../axios/page.js"; // Adjust the import path as necessary
 
-const Favorites = () => {
-  const [artists, setArtists] = useState(null);
+const MyPlaylist = () => {
+  const [playlists, setPlaylists] = useState(null);
   const [error, setError] = useState(null);
   const token =
     typeof window !== "undefined"
@@ -15,13 +15,13 @@ const Favorites = () => {
     if (token) {
       setClientToken(token);
       apiClient
-        .get("me/following?type=artist")
+        .get("me/playlists")
         .then((response) => {
-          setArtists(response.data.artists.items);
+          setPlaylists(response.data.items);
         })
         .catch((error) => {
-          console.error("Error fetching artists:", error);
-          setError("Failed to fetch artists.");
+          console.error("Error fetching playlists:", error);
+          setError("Failed to fetch playlists.");
         });
     } else {
       setError("No authentication token found.");
@@ -31,29 +31,34 @@ const Favorites = () => {
   return (
     <div className="flex flex-col h-full bg-black p-4 overflow-y-auto">
       {error && <div className="text-red-500">{error}</div>}
-      {artists ? (
+      {playlists ? (
         <div className="flex flex-wrap gap-4">
-          {artists.map((artist) => (
+          {" "}
+          {/* Container for inline items */}
+          {playlists.map((playlist) => (
             <div
-              key={artist.id}
+              key={playlist.id}
               className="flex flex-col items-center p-2 text-white rounded shadow w-40 hover:scale-110 transition duration-300 ease-in-out"
             >
-              {artist.images && artist.images.length > 0 && (
+              {/* Check if playlist.images exists and has at least one image */}
+              {playlist.images && playlist.images.length > 0 && (
                 <img
-                  src={artist.images[0].url}
-                  alt={artist.name}
+                  src={playlist.images[0].url}
+                  alt={playlist.name}
                   className="w-32 h-32 object-cover rounded mb-2"
                 />
               )}
-              <div className="text-center">{artist.name}</div>
+              <div className="text-center overflow-hidden text-ellipsis whitespace-nowrap w-32">
+                {playlist.name}
+              </div>
             </div>
           ))}
         </div>
       ) : (
-        !error && <div>Loading artists...</div>
+        !error && <div>Loading playlists...</div>
       )}
     </div>
   );
 };
 
-export default Favorites;
+export default MyPlaylist;

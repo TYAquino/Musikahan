@@ -35,6 +35,11 @@ export default function Sidebar() {
           imageSrc="/images/favorite.png"
         />
         <SideButtons
+          title="Trending"
+          to="/trending"
+          imageSrc="/images/trending.png"
+        />
+        <SideButtons
           title="Player"
           to="/player"
           imageSrc="/images/player.png"
