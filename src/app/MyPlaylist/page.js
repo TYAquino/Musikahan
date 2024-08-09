@@ -7,8 +7,12 @@ import { FaPlay } from 'react-icons/fa';
 const MyPlaylist = () => {
   const [playlists, setPlaylists] = useState(null);
   const [error, setError] = useState(null);
-  const [selectedPlaylistId, setSelectedPlaylistId] = useState(null);
   const token = typeof window !== 'undefined' ? window.localStorage.getItem('access_token') : null;
+  const [iframeSrc, setIframeSrc] = useState('');
+
+  const handleClick = (playlistId) => {
+    setIframeSrc(`https://open.spotify.com/embed/playlist/${playlistId}?utm_source=generator`);
+  }
 
   useEffect(() => {
     if (token) {
@@ -26,32 +30,24 @@ const MyPlaylist = () => {
     }
   }, [token]);
 
-  const handlePlaylistClick = (playlistId) => {
-    setSelectedPlaylistId(playlistId);
-  };
-
-  // Construct the embed URL using the selected playlist ID
-  const embedUrl = selectedPlaylistId ? `https://open.spotify.com/embed/playlist/${selectedPlaylistId}?utm_source=generator` : '';
-
   return (
     <div className="flex flex-col h-screen ml-10 bg-black p-2 scrollbar-hide">
     
       {/* Header Section for Embed */}
-      <header className="h-72 w-full bg-black scrollbar-hide"> {/* Adjust the height of the header */}
-        {embedUrl && (
+      <div>
+        {iframeSrc && (
           <iframe
-            src={embedUrl}
+            src={iframeSrc}
+            title="Spotify Player"
             width="100%"
-            height="100%"
-            frameBorder="0"
-            allowFullScreen
+            height="380"
+            allowFullScreen=""
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
-            title="Spotify Playlist"
-            style={{ display: 'block', width: '100%', height: '100%' }}
-          ></iframe>
+            style={{ border: '1px solid black' }}
+          />
         )}
-      </header>
+      </div>
 
       {/* Lower Section for Playlist */}
       <main className="flex-1 overflow-y-auto p-2">
@@ -62,7 +58,7 @@ const MyPlaylist = () => {
               <div
                 key={playlist.id}
                 className="relative flex flex-col items-center scrollbar-hide p-2 text-white rounded shadow w-40 text-wrap bg-gray-900 hover:scale-110 transition duration-300 ease-in-out"
-                onClick={() => handlePlaylistClick(playlist.id)}
+                onClick={() => handleClick(playlist.id)}
               >
                 {/* Container for image and play button */}
                 <div className="relative">
