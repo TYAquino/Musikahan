@@ -21,8 +21,8 @@ export default function Sidebar() {
       </div>
       <div className="flex flex-col space-y-6">
         <SideButtons title="My Playlist" to="/MyPlaylist" imageSrc="/images/library.png" />
-        <SideButtons title="Favorites" to="/favorites" imageSrc="/images/favorite.png" />
-        <SideButtons title="Tracks" to="/Tracks" imageSrc="/images/trending.png" />
+        {/* <SideButtons title="Favorites" to="/favorites" imageSrc="/images/favorite.png" /> */}
+        <SideButtons title="Favorite Songs" to="/Tracks" imageSrc="/images/trending.png" />
         
       </div>
     </div>
