@@ -11,9 +11,11 @@ const Tracks = () => {
   useEffect(() => {
     if (token) {
       setClientToken(token);
-      apiClient.get('me/top?type=track')
+      apiClient.get('me/tracks')
         .then(response => {
-          setTracks(response.data.tracks.items);
+          console.log(response.data); // Check the response structure
+          // Adjust the path if necessary based on actual response structure
+          setTracks(response.data.items || response.data.tracks.items);
         })
         .catch(error => {
           console.error('Error fetching tracks:', error);
@@ -31,10 +33,10 @@ const Tracks = () => {
         <div className="flex flex-wrap gap-4"> {/* Container for inline items */}
           {tracks.map((track) => (
             <div key={track.id} className="flex flex-col items-center p-2 text-white rounded shadow w-40">
-              {/* Check if playlist.images exists and has at least one image */}
-              {track.images && track.images.length > 0 && (
+              {/* Check if track.album.images exists and has at least one image */}
+              {track.album && track.album.images && track.album.images.length > 0 && (
                 <img
-                  src={track.images[0].url}
+                  src={track.album.images[0].url}
                   alt={track.name}
                   className="w-32 h-32 object-cover rounded mb-2"
                 />

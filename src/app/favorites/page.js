@@ -37,7 +37,7 @@ const Favorites = () => {
           {artists.map((artist) => (
             <div
               key={artist.id}
-              className="relative flex flex-col items-center p-2 text-white rounded shadow w-40 bg-gray-900  hover:scale-110 transition duration-300 ease-in-out"
+              className="relative flex flex-col items-center p-2 text-white rounded shadow w-40 bg-gray-  hover:scale-110 transition duration-300 ease-in-out"
             >
               {/* Container for image and play button */}
               <div className="relative">
