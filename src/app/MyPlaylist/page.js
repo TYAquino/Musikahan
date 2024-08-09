@@ -31,7 +31,7 @@ const MyPlaylist = () => {
   }, [token]);
 
   return (
-    <div className="flex flex-col h-screen bg-black scrollbar-hide">
+    <div className="flex flex-col h-full overflow-y-auto bg-black scrollbar-hide">
     
       {/* Header Section for Embed */}
       <div>

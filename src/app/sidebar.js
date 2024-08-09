@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function Sidebar() {
   return (
-    <div className="bg-[#090615] text-white w-50 flex flex-col p-4 shadow-lg rounded-lg"> {/* Adjust width and height */}
+    <div className="bg-[#090615] text-white w-50 flex flex-col p-2 shadow-lg rounded-lg"> {/* Adjust width and height */}
 
       <div className="flex items-center">
         <div className="w-32 h-24"> {/* Container for logo */}
@@ -19,11 +19,10 @@ export default function Sidebar() {
           />
         </div>
       </div>
-      <div className="flex flex-col space-y-6">
+      <div className="flex flex-col space-y-10 mt-10">
         <SideButtons title="My Playlist" to="/MyPlaylist" imageSrc="/images/library.png" />
         {/* <SideButtons title="Favorites" to="/favorites" imageSrc="/images/favorite.png" /> */}
-        <SideButtons title="Favorite Songs" to="/Tracks" imageSrc="/images/trending.png" />
-        
+        <SideButtons title="Tracks" to="/Tracks" imageSrc="/images/trending.png" />
       </div>
     </div>
   );

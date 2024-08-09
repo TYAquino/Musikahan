@@ -23,7 +23,6 @@ async function redirectToSpotifyAuthorize() {
     .replace(/\//g, '_');
 
   window.localStorage.setItem('code_verifier', code_verifier);
-  console.log('code_verifier 01', code_verifier);
 
   const authUrl = new URL(authorizationEndpoint)
   const params = {
@@ -43,8 +42,6 @@ export default function Loginauth() {
   const router = useRouter();
 
   useEffect(() => {
-    // console.log('clientId=' + clientId, 'redirectUrl=' + redirectUrl);
-    // Check if there is an access token in the URL hash
     const hash = window.location.hash;
     if (hash) {
       const params = new URLSearchParams(hash.substring(1));
@@ -58,17 +55,19 @@ export default function Loginauth() {
   }, [router]);
 
   return (
-    <div className="fixed inset-4 flex flex-col items-center justify-center p-4 bg-black z-50">
-      <img
-        src="/images/listenonspotify.webp"
-        width={500}
-        height={500}
-        className="mb-4"
-        alt="Spotify Logo"
-      />
+    <div 
+      className="fixed inset-0 flex flex-col items-center justify-center p-4 z-50"
+      style={{
+        backgroundImage: 'url(/images/background.png)', // Replace with your image path
+        backgroundSize: 'cover', // Cover the entire container
+        backgroundPosition: 'center', // Center the image
+        backgroundRepeat: 'no-repeat', // Prevent image repetition
+      }}
+    >
+      
       <button
         onClick={redirectToSpotifyAuthorize}
-        className="p-20 py-3 bg-white text-black font-bold rounded hover:bg-green-700 transition m-3 border-2 border-gray-300"
+        className="p-3 bg-white text-black font-bold rounded hover:bg-purple-700 transition m-3 border-2 border-gray-300 mt-80 w-40"
       >
         Login
       </button>
