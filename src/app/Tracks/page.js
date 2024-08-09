@@ -32,9 +32,9 @@ const Tracks = () => {
   };
 
   return (
-    <div className="flex flex-col h-full bg-black p-4 overflow-y-auto">
+    <div className="flex flex-col h-full bg-black p-4 overflow-y-auto scrollbar-hide">
       {/* Header Section for Embed */}
-      <div className="flex-none">
+      <div className="flex-none scrollbar-hide">
         {iframeSrc ? (
           <iframe
             src={iframeSrc}
@@ -52,15 +52,15 @@ const Tracks = () => {
       </div>
 
       {/* Lower Section for Tracks */}
-      <main className="flex-1 overflow-y-auto p-2">
+      <main className="flex-1 overflow-y-auto scrollbar-hide ">
         {error && <div className="text-red-500">{error}</div>}
         {tracks ? (
           tracks.length > 0 ? (
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap scrollbar-hide gap-4">
               {tracks.map((track) => (
                 <div
                   key={track.track.id}
-                  className="relative flex flex-col items-center p-2 text-white rounded shadow w-40 bg-gray-900 hover:scale-110 transition duration-300 ease-in-out cursor-pointer"
+                  className="relative flex flex-col items-center p-2 text-white rounded scrollbar-hide shadow w-40 bg-gray-900 hover:scale-110 transition duration-300 ease-in-out cursor-pointer"
                   onClick={() => handleClick(track.track.id)}
                 >
                   {/* Container for image and play button */}
@@ -73,8 +73,8 @@ const Tracks = () => {
                       />
                     )}
                     {/* Play button */}
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                      <FaPlay className="w-8 h-8 text-white" />
+                    <div className="absolute inset-0 flex items-center scrollbar-hide justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                      <FaPlay className="w-8 h-8 text-teal-600" />
                     </div>
                   </div>
                   <div className="text-center">{track.track.name}</div>

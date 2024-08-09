@@ -31,7 +31,7 @@ const MyPlaylist = () => {
   }, [token]);
 
   return (
-    <div className="flex flex-col h-screen ml-10 bg-black p-2 scrollbar-hide">
+    <div className="flex flex-col h-screen bg-black scrollbar-hide">
     
       {/* Header Section for Embed */}
       <div>
@@ -71,7 +71,7 @@ const MyPlaylist = () => {
                   )}
                   {/* Play button */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 scrollbar-hide">
-                    <FaPlay className="w-8 h-8 text-white" />
+                    <FaPlay className="w-8 h-8 text-teal-600" />
                   </div>
                 </div>
                 <div className="text-center">{playlist.name}</div>
